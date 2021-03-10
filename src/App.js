@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/header'
+import TheAppBar from './components/AppBar'
+import nav from './assets/nav.js'
 
 function App() {
+  const onClick = (id) => {
+    console.log(id);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TheAppBar nav={nav} onClick={onClick}  />
+      <Header title="Hello" />
     </div>
   );
 }
