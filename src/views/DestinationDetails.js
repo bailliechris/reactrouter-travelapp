@@ -1,26 +1,15 @@
 import {useParams} from "react-router-dom"
-import nav from '../assets/store'
+import destinations from '../assets/storetest.js'
 
 function DestinationDetails() {
-    const {url} = useParams();
+    const {destination} = useParams();
 
-    let data = nav.slice();
-    let dest;
-
-    if(url!== '')
-    {
-        dest = data.filter(d => d.url = url);
-    }
-    else {
-        dest = {
-            name: "None",
-            description: "Nothing yet"
-        }
-    }
+    let dest = destinations.find(d => d.match === destination);
+    console.log(dest);
 
     return (
         <div className="App">
-            <h1>{dest.name} </h1>
+            <h1>Visit - {dest.name} !</h1>
             <h3>{dest.description} </h3>
         </div>
     );

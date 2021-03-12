@@ -1,26 +1,23 @@
 import './App.css';
 import Header from './components/header'
 import TheAppBar from './components/AppBar'
-import nav from './assets/store.js'
-import {Route} from "react-router-dom"
+import nav from './assets/storetest.js'
+import {Route, Switch} from "react-router-dom"
 import DestinationDetails from './views/DestinationDetails'
-import {useState} from 'react'
 
 function App() {
-  const [url, setURL] = useState('');
+  // For testing link clicks
   const onClick = (url) => {
-    console.log(url);
-    setURL(url);
+    console.log("Clicked url: " + url);
   }
 
   return (
     <div className="App">
       <TheAppBar nav={nav} onClick={onClick}  />
-      <Header title="Hello" />
-      <Route path={`${url}`}>
-        <DestinationDetails />
-      </Route>
-
+      <Header title="Header Text" />
+      <Switch>
+        <Route path="/:destination" children={<DestinationDetails />} />
+      </Switch>
     </div>
   );
 }

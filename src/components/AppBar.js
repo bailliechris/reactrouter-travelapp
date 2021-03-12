@@ -5,11 +5,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AButton from './abutton'
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    '& > *': {
+      margin: theme.spacing(1),
+    }
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -18,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 function TheAppBar({nav, onClick}) {
   const classes = useStyles();
+//  console.table(nav);
 
   return (
     <div className={classes.root}>
@@ -28,9 +35,11 @@ function TheAppBar({nav, onClick}) {
           <Typography variant="h6" color="inherit">
             React Router Trials
           </Typography>
+          <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
             {nav.map((item) => (
-                <AButton key={item.id} item={item} onClick={onClick} />
+                <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}
+          </ButtonGroup>
         </Toolbar>
       </AppBar>
     </div>
