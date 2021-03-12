@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginLeft: theme.spacing(2),
   },
 }));
 
@@ -30,12 +30,9 @@ function TheAppBar({nav, onClick}) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" className={classes.menuButton} color="primary" aria-label="menu">
           </IconButton>
-          <Typography variant="h6" color="inherit">
-            React Router Trials
-          </Typography>
-          <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
+          <ButtonGroup variant="text" color="inherit" size="large" aria-label="text primary button group">
             {nav.map((item) => (
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}

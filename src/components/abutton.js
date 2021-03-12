@@ -4,11 +4,9 @@ import {Link} from "react-router-dom";
 
 const AButton = ({url, text, onClick}) => {
     return (
-        <div>
             <Link to={url}>
-                <Button color="inherit" variant="contained" onClick={()=>onClick(url)}>{text}</Button>
+                <Button color="primary" variant="contained" onClick={()=>onClick(url)}>{text}</Button>
             </Link>
-        </div>
     )
 }
 
