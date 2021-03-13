@@ -1,11 +1,22 @@
-import './App.css';
+import destinations from '../assets/store.js'
+import ACard from '../components/acard'
+import Grid from '@material-ui/core/Grid';
 
-function Home() {
-  return (
-    <div className="App">
-      <p className="text">Home</p>  
-    </div>
-  );
+function DestinationDetails() {
+    return (
+      <div>
+        <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="flex-start"
+        >
+            {destinations.map((destination) => (
+                <ACard key={destination.id} url={destination.address} text={destination.name} image={destination.image} desc={destination.description} />
+            ))}
+        </Grid>
+      </div>
+    );
 }
 
-export default Home;
+export default DestinationDetails;

@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom"
-import destinations from '../assets/storetest.js'
+import destinations from '../assets/store.js'
 
 function DestinationDetails() {
     const {destination} = useParams();
