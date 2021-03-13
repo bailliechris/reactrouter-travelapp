@@ -12,7 +12,7 @@ function DestinationDetails() {
           alignItems="flex-start"
         >
             {destinations.map((destination) => (
-                <ACard key={destination.id} url={destination.address} text={destination.name} image={destination.image} desc={destination.description} />
+                <ACard key={destination.id} url={destination.address} text={destination.name} image={destination.image} />
             ))}
         </Grid>
       </div>

@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
   });
 
-const ACard = ({url, text, image, desc}) => {
+const ACard = ({url, text, image}) => {
     const classes = useStyles();
     const imgadd = require(`../assets/${image}`).default;
 
@@ -30,9 +30,6 @@ const ACard = ({url, text, image, desc}) => {
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {text}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {desc}
             </Typography>
           </CardContent>
         </CardActionArea>

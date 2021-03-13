@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginLeft: theme.spacing(2),
   },
+  title: {
+    color:'white'
+  }
 }));
 
 function TheAppBar({nav, onClick}) {
@@ -31,13 +34,13 @@ function TheAppBar({nav, onClick}) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <Link to="/">
             <IconButton edge="start" className={classes.menuButton} color="primary" aria-label="menu">
             </IconButton>
+          <Link to="/">
+            <Typography className={classes.title} align="center" color="inherit">
+              Travel App
+            </Typography>
           </Link>
-          <Typography align="center" color="inherit">
-            Travel App
-          </Typography>
           <ButtonGroup variant="text" color="inherit" size="large" aria-label="text primary button group">
             {nav.map((item) => (
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
