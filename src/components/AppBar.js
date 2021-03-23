@@ -41,7 +41,7 @@ function TheAppBar({nav, onClick}) {
               Travel App
             </Typography>
           </Link>
-          <ButtonGroup variant="text" color="inherit" size="large" aria-label="text primary button group">
+          <ButtonGroup variant="text" color="inherit" size="medium" aria-label="text primary button group">
             {nav.map((item) => (
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}

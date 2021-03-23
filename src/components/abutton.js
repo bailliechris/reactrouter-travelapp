@@ -18,7 +18,7 @@ const AButton = ({url, text, onClick}) => {
     return (
         <div className={classes.root}>
             <Link to={url}>
-                <Button color="primary" variant="contained" onClick={()=>onClick(url)}>{text}</Button>
+                <Button color="inherit" variant="outlined" onClick={()=>onClick(url)}>{text}</Button>
             </Link>
         </div>
     )

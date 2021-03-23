@@ -20,10 +20,14 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/:destination" children={<DestinationDetails />} />
+        <Route path="/:destination">
+          <DestinationDetails />
+        </Route>
+        
       </Switch>
     </div>
   );
 }
 
 export default App;
+//<Route path="/:destination" children={<DestinationDetails />} />
