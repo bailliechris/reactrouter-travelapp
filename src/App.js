@@ -4,6 +4,7 @@ import TheAppBar from './components/AppBar'
 import nav from './assets/store.js'
 import {Route, Switch} from "react-router-dom"
 import DestinationDetails from './views/DestinationDetails'
+import ExperienceDetails from './views/ExperienceDetails.js';
 import Home from './views/home'
 
 function App() {
@@ -12,9 +13,12 @@ function App() {
     console.log("Clicked url: " + url);
   }
 
+
+
   return (
     <div className="App">
-      <TheAppBar nav={nav} onClick={onClick}  />
+      <TheAppBar nav={nav} onClick={onClick} />
+      <ExperienceDetails />
       <Header title="Where would you like to go?" />
       <Switch>
         <Route exact path="/">
