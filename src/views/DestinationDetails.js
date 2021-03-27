@@ -1,4 +1,4 @@
-import {Route, Switch, useParams, useRouteMatch, useLocation} from "react-router-dom"
+import { useParams, useRouteMatch, Switch, Route } from "react-router-dom"
 import destinations from '../assets/store.js'
 import Grid from '@material-ui/core/Grid';
 import ACard from '../components/acard'
@@ -6,11 +6,9 @@ import ExperienceDetails from './ExperienceDetails'
 
 function DestinationDetails() {
     const { destination } = useParams();
+    let { url, path } = useRouteMatch();
 
-    let match = useRouteMatch();
-    let current = useLocation();
     let dest = destinations.find(d => d.match === destination);
-    console.log(dest);
 
     return (
         <div className="App">
@@ -24,7 +22,7 @@ function DestinationDetails() {
             >
                 
                 {dest.experiences.map((exp) => {
-                    let newURL = current.pathname + "/"+ exp.match;
+                    let newURL = url + "/" + exp.match;
                     
                     return (
                         <ACard key={exp.name} url={newURL} text={exp.name} image={exp.image} />
@@ -33,12 +31,12 @@ function DestinationDetails() {
             </Grid>
 
             <Switch>
-                <Route path={`${match.path}/:experience`}>
+                <Route exact path={path}>
+                    <h3>Select an experience to find out more.</h3>
+                </Route>
+                <Route path={`${path}/:experience`}>
                     <ExperienceDetails />
-                </Route>
-                <Route path={match.path}>
-                    <h3>Choose a experience to find out more!</h3>
-                </Route>
+                </Route>        
             </Switch>
 
         </div>

@@ -18,7 +18,6 @@ function App() {
   return (
     <div className="App">
       <TheAppBar nav={nav} onClick={onClick} />
-      <ExperienceDetails />
       <Header title="Where would you like to go?" />
       <Switch>
         <Route exact path="/">
@@ -27,7 +26,9 @@ function App() {
         <Route path="/:destination">
           <DestinationDetails />
         </Route>
-        
+        <Route path="/:destination/:experience">
+          <ExperienceDetails />
+        </Route>        
       </Switch>
     </div>
   );
