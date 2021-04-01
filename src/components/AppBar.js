@@ -7,7 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AButton from './abutton'
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import { useDispatch } from "react-redux";
+import { addNumber } from '../redux/actions/actions';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 function TheAppBar({nav, onClick}) {
   const classes = useStyles();
+  const dispatch = useDispatch();
 //  console.table(nav);
 
   return (
@@ -46,6 +49,7 @@ function TheAppBar({nav, onClick}) {
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}
           </ButtonGroup>
+          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(addNumber(5))}></Button>
         </Toolbar>
       </AppBar>
     </div>

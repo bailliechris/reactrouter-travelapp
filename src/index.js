@@ -5,10 +5,9 @@ import App from './App';
 import 'fontsource-roboto';
 import { BrowserRouter } from "react-router-dom"
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import rootReducer from './reducers'
+import app_store from './redux/store/index'
 
-const store = createStore(rootReducer)
+const store = app_store
 
 ReactDOM.render(
   <React.StrictMode>
