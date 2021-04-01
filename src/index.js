@@ -4,11 +4,18 @@ import './index.css';
 import App from './App';
 import 'fontsource-roboto';
 import { BrowserRouter } from "react-router-dom"
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />   
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
