@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -7,9 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AButton from './abutton'
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { useDispatch } from "react-redux";
-import { addNumber } from '../redux/actions/actions';
 import Button from '@material-ui/core/Button';
+import { increment, decrement, incrementByAmount } from '../redux/slices/counter';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TheAppBar({nav, onClick}) {
+  // Get variable from the state
+  const {count} = useSelector(state => state.counter);
   const classes = useStyles();
+  // Send commands to the state
   const dispatch = useDispatch();
 //  console.table(nav);
 
@@ -49,7 +52,12 @@ function TheAppBar({nav, onClick}) {
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}
           </ButtonGroup>
-          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(addNumber(5))}></Button>
+          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(increment())}>+</Button>
+          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(decrement())}>-</Button>
+          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(incrementByAmount(5))}>+5</Button>
+          <Typography className={classes.title} align="center" color="inherit">
+              {count}
+          </Typography>
         </Toolbar>
       </AppBar>
     </div>

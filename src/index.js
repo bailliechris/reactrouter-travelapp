@@ -7,12 +7,10 @@ import { BrowserRouter } from "react-router-dom"
 import { Provider } from 'react-redux'
 import app_store from './redux/store/index'
 
-const store = app_store
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
+      <Provider store={app_store}>
         <App />
       </Provider>
     </BrowserRouter>
