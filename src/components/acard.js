@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
   });
 
-const ACard = ({url, text, image}) => {
+const ACard = ({url, text, image, button_text}) => {
     const classes = useStyles();
     const imgadd = require(`../assets/${image}`).default;
 
@@ -36,7 +36,7 @@ const ACard = ({url, text, image}) => {
         <CardActions>
             <Link to={url}>
                 <Button color="primary" variant="contained" size="small" >
-                Find out more...
+                  {button_text}
                 </Button>                
             </Link>
         </CardActions>

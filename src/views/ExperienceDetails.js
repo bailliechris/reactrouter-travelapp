@@ -1,9 +1,10 @@
 import destinations from '../assets/store.js'
 import { useParams } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     paper: {
       padding: theme.spacing(2),
       textAlign: 'center',
-      color: theme.palette.text.secondary,
+      color: theme.palette.text.primary,
     },
   }));
 
@@ -27,21 +28,27 @@ function ExperienceDetails() {
 
     return (
         <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <Paper className={classes.paper}>{exp.name}</Paper>
+            <Paper className={classes.paper}>
+                <Grid container spacing={0}>
+                    <Grid item xs={12}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {exp.name}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        src={imgadd}
+                    />
+                    </Grid>
+                    <Grid item xs={9}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {exp.description}
+                        </Typography>
+                    </Grid>
                 </Grid>
-                <Grid item xs={3}>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    src={imgadd}
-                />
-                </Grid>
-                <Grid item xs={9}>
-                    <Paper className={classes.paper}>{exp.description}</Paper>
-                </Grid>
-            </Grid>
+            </Paper>
         </div>
     )
 }
