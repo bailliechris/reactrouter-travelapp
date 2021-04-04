@@ -62,7 +62,7 @@ function TheAppBar({nav, onClick}) {
           </Typography>
           {items.map((item) => (
             <Typography className={classes.title} align="center" color="inherit">
-              {items}
+              {item}
             </Typography>
           ))}
           <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(clearAllItems())}>Clear</Button>

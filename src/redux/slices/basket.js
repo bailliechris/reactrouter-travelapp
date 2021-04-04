@@ -7,7 +7,7 @@ export const basketSlice = createSlice({
   },
   reducers: {
         addItem: (state, action) => {
-          state.items.push(action.payload);
+            state.items = [...state.items, action.payload];
         },
         removeItem: (state, action) => {
             const index = state.items.indexOf(action.payload);
