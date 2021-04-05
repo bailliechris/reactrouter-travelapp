@@ -7,10 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AButton from './abutton'
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import Button from '@material-ui/core/Button';
-import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement, incrementByAmount } from '../redux/slices/counter';
-import { clearAllItems } from '../redux/slices/basket';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,12 +27,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TheAppBar({nav, onClick}) {
-  // Get variable from the state
-  const { count } = useSelector(state => state.counter);
   const { items } = useSelector(state => state.basket);
   const classes = useStyles();
-  // Send commands to the state
-  const dispatch = useDispatch();
 //  console.table(nav);
 
   return (
@@ -54,19 +47,16 @@ function TheAppBar({nav, onClick}) {
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}
           </ButtonGroup>
-          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(increment())}>+</Button>
-          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(decrement())}>-</Button>
-          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(incrementByAmount(5))}>+5</Button>
-          <Typography className={classes.title} align="center" color="inherit">
-              {count}
-          </Typography>
           {items.map((item) => (
             <Typography className={classes.title} align="center" color="inherit">
               {item}
             </Typography>
           ))}
-          <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(clearAllItems())}>Clear</Button>
-
+          <Link to="/basket">
+            <Typography className={classes.title} align="right" color="inherit">
+              Checkout
+            </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>

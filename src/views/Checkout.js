@@ -3,11 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import ACard from '../components/acard'
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem } from '../redux/slices/basket';
+import { removeItem, clearAllItems } from '../redux/slices/basket';
 
 function Checkout() {
     // Get selected destinations from state
-    const { items } = useSelector(state => state.items);
+    const { items } = useSelector(state => state.basket);
     // Send commands to the state
     const dispatch = useDispatch();
 
@@ -23,13 +23,15 @@ function Checkout() {
             >
                 {items.map((item) => {
                     let destination = destinations.find(d => d.name === item);
-                    let destURL = dispatch(removeItem(item));
+                    let destURL = "end";//dispatch(removeItem(item));
                  
                     return (
                         <ACard key={destination.id} url={destURL} text={destination.name} image={destination.image} button_text="Remove"/>
                     )
                 })}
             </Grid>
+
+            <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(clearAllItems())}>Cancel All</Button>
             
             <Button variant="contained" color="primary">Confirm</Button>
 

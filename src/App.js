@@ -4,7 +4,8 @@ import TheAppBar from './components/AppBar'
 import nav from './assets/store.js'
 import {Route, Switch} from "react-router-dom"
 import DestinationDetails from './views/DestinationDetails'
-import ExperienceDetails from './views/ExperienceDetails.js';
+import ExperienceDetails from './views/ExperienceDetails.js'
+import Checkout from './views/Checkout'
 import Home from './views/home'
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/basket">
+          <Checkout />
         </Route>
         <Route path="/:destination">
           <DestinationDetails />
