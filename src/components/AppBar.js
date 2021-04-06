@@ -4,10 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import AButton from './abutton'
+//import IconButton from '@material-ui/core/IconButton';
+import AButton from './abutton';
+//import MenuIcon from '@material-ui/icons/Menu';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { useSelector } from 'react-redux';
+import AMenu from './amenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,16 +28,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TheAppBar({nav, onClick}) {
-  const { items } = useSelector(state => state.basket);
   const classes = useStyles();
 //  console.table(nav);
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar variant="dense">
-            <IconButton edge="start" className={classes.menuButton} color="primary" aria-label="menu">
-            </IconButton>
+        <Toolbar variant="regular">
+          <AMenu nav={nav} />
           <Link to="/">
             <Typography className={classes.title} align="center" color="inherit">
               Travel App
@@ -47,11 +46,6 @@ function TheAppBar({nav, onClick}) {
                 <AButton key={item.id} url={item.address} text={item.name} onClick={onClick} />
             ))}
           </ButtonGroup>
-          {items.map((item) => (
-            <Typography className={classes.title} align="center" color="inherit">
-              {item}
-            </Typography>
-          ))}
           <Link to="/basket">
             <Typography className={classes.title} align="right" color="inherit">
               Checkout

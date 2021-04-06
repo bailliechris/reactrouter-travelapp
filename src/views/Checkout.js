@@ -1,9 +1,9 @@
 import destinations from '../assets/store.js'
 import Grid from '@material-ui/core/Grid';
-import ACard from '../components/acard'
+import ACheckoutItem from '../components/acheckoutitem'
 import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem, clearAllItems } from '../redux/slices/basket';
+import { clearAllItems } from '../redux/slices/basket';
 
 function Checkout() {
     // Get selected destinations from state
@@ -17,18 +17,18 @@ function Checkout() {
             <h3>Confirm your magical get away. </h3>
             <Grid
                 container
-                direction="column"
+                direction="row"
                 justify="center"
                 alignItems="center"
+                alignContent="center"
             >
                 {items.map((item) => {
                     let destination = destinations.find(d => d.name === item);
                                      
                     return (
-                        <div>
-                            <ACard key={destination.id} url={destination.match} text={destination.name} image={destination.image} button_text="Remove"/>
-                            <Button variant="contained" color="secondary" onClick={()=>dispatch(removeItem(item))}>Remove</Button>
-                        </div>
+                        <Grid item xs={10} sm={6}>
+                            <ACheckoutItem key={destination.id} url={destination.match} text={destination.name} image={destination.image} button_text="Remove" item={item}/>
+                        </Grid>
                     )
                 })}
             </Grid>
