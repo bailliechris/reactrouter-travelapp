@@ -18,20 +18,22 @@ function Checkout() {
             <Grid
                 container
                 direction="column"
-                justify="space-evenly"
-                alignItems="flex-start"
+                justify="center"
+                alignItems="center"
             >
                 {items.map((item) => {
                     let destination = destinations.find(d => d.name === item);
-                    let destURL = "end";//dispatch(removeItem(item));
-                 
+                                     
                     return (
-                        <ACard key={destination.id} url={destURL} text={destination.name} image={destination.image} button_text="Remove"/>
+                        <div>
+                            <ACard key={destination.id} url={destination.match} text={destination.name} image={destination.image} button_text="Remove"/>
+                            <Button variant="contained" color="secondary" onClick={()=>dispatch(removeItem(item))}>Remove</Button>
+                        </div>
                     )
                 })}
             </Grid>
 
-            <Button variant="contained" color="primary" disableElevation onClick={() => dispatch(clearAllItems())}>Cancel All</Button>
+            <Button variant="contained" color="secondary" disableElevation onClick={() => dispatch(clearAllItems())}>Cancel All</Button>
             
             <Button variant="contained" color="primary">Confirm</Button>
 
