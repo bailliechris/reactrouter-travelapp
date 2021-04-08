@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     color:'white'
+  },
+  checkoutButton: {
+    color:'white'
   }
 }));
 
