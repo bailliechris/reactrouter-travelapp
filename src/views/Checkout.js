@@ -13,7 +13,7 @@ function Checkout() {
 
     return (
         <div className="App">
-            <h1>Checkout - Add User Name Here !</h1>
+            <h1>Checkout</h1>
             <h3>Confirm your magical get away. </h3>
             <Grid
                 container
