@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import AButton from './abutton';
 //import MenuIcon from '@material-ui/icons/Menu';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import AMenu from './amenu';
+//import AMenu from './amenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +38,6 @@ function TheAppBar({nav, onClick}) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar variant="regular">
-          <AMenu nav={nav} />
           <Link to="/">
             <Typography className={classes.title} align="center" color="inherit">
               Travel App
